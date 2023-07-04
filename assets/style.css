@@ -1,0 +1,44 @@
+:root {
+    background-color: #F8F9F9;
+    font-size: 65%;
+}
+
+* {
+    box-sizing:border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 1rem;
+    color: #606062;
+}
+
+h1 {
+    font-size: 5rem;
+    margin-bottom: 4.5rem;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+.header {
+    width: 100vw;
+    height: 100vh;
+    padding: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
