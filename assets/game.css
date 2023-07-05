@@ -1,0 +1,24 @@
+.choice {
+    display: flex;
+    margin-bottom: .3rem;
+    font-size: 2rem;
+    border: 0.2rem solid #367af1;
+    background-color: #fff;
+    border-radius: 1.5rem;
+}
+
+.choice:hover {
+    cursor: pointer;
+    box-shadow: 0 0.3rem 1.3rem #1f3c70;
+}
+
+.choice-opt {
+    padding: 1.3rem 2rem;
+    background-color: #367af1;
+    color: #fff;
+    border-radius: 1.3rem 0 0 1.3rem;
+}
+
+.choice-ans {
+    padding: 1.3rem;
+}
