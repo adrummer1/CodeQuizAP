@@ -1,6 +1,5 @@
 var question = document.getElementById("question");
 var choice = Array.from(document.getElementsByClassName("choice-ans"));
-console.log(choice);
 
 let currentQuestion = {};
 let acceptAnswers = false;
@@ -15,12 +14,12 @@ let questions =[
         choice2: "String",
         choice3: "Boolean",
         choice4: "Object",
-        answer: 1
+        answer: 4
     },
     {
         question: "What is output of the following code: 'console.log(2 = “2”)'?",
-        choice1: "4",
-        choice2: "22",
+        choice1: "\"" + 4 + "\"",
+        choice2: "\"" + 22 +"\"",
         choice3: 4,
         choice4: 22,
         answer: 2
@@ -78,9 +77,20 @@ choice.forEach(choice => {
         acceptAnswers = false;
         var pickedChoice = Event.target;
         var pickedAns = pickedChoice.dataset["number"];
-        console.log(pickedAns);
-        getNextQuestion();
-    })
+        var response = document.getElementById("response");
+            if (pickedAns == currentQuestion.answer) {
+                var node1 = document.createTextNode("Correct!");
+                response.appendChild(node1);
+            } else {
+                var node2 = document.createTextNode("Incorrect");
+                response.appendChild(node2);
+            }
+
+            setTimeout(() => {
+                response.remove();
+                getNextQuestion();
+            }, 1000);
+    });
 }
     
     )

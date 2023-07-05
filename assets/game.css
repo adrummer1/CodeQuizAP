@@ -21,4 +21,20 @@
 
 .choice-ans {
     padding: 1.3rem;
+    width: 100%;
+}
+
+.correct {
+    background-color: #fef767;
+    content: "Correct!" !important;
+}
+
+.incorrect {
+    background-color: #f28c8c;
+}
+
+#response {
+    padding: 2rem;
+    font-size:larger;
+    color: purple;
 }
