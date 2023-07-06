@@ -24,17 +24,19 @@
     width: 100%;
 }
 
-.correct {
-    background-color: #fef767;
-    content: "Correct!" !important;
-}
-
-.incorrect {
-    background-color: #f28c8c;
-}
-
 #response {
-    padding: 2rem;
-    font-size:larger;
-    color: purple;
+    padding: 3rem;
+    font-size:4rem;
+    font-weight:bold;
+    color: #f28c8c;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-pre {
+    text-align: center;
+    font-size: 2rem;
 }

@@ -1,11 +1,15 @@
 var question = document.getElementById("question");
 var choice = Array.from(document.getElementsByClassName("choice-ans"));
+var timerEl = document.getElementById("timerEl");
+
 
 let currentQuestion = {};
 let acceptAnswers = false;
 let score = 0;
 let questionCount = 0;
 let availQuestions = [];
+var timer;
+var timerCount;
 
 let questions =[
     {
@@ -46,10 +50,11 @@ var CORRECT_POINTS = 10;
 var MAX_QUESTIONS = 4;
 
 startGame = () => {
-    questionCount = 0;
+    timerCount = 100;
     score = 0;
     availQuestions = [...questions];
     console.log(availQuestions);
+    startTimer();
     getNextQuestion();
 };
 
@@ -71,28 +76,37 @@ getNextQuestion = () => {
     acceptAnswers = true;
 };
 
+var response = document.getElementById("response");
 choice.forEach(choice => {
     choice.addEventListener("click", Event => {
         if (!acceptAnswers) return;
         acceptAnswers = false;
         var pickedChoice = Event.target;
         var pickedAns = pickedChoice.dataset["number"];
-        var response = document.getElementById("response");
             if (pickedAns == currentQuestion.answer) {
                 var node1 = document.createTextNode("Correct!");
                 response.appendChild(node1);
             } else {
                 var node2 = document.createTextNode("Incorrect");
                 response.appendChild(node2);
+                timerCount -= 20;
             }
 
             setTimeout(() => {
-                response.remove();
+                response.innerHTML = "";
                 getNextQuestion();
             }, 1000);
     });
+})
+
+function startTimer() {
+    timer = setInterval(function() {
+        timerCount--;
+        timerEl.textContent = timerCount;
+        if (timerCount === 0) {
+            clearInterval(timer);
+        }
+    },1000);
 }
-    
-    )
 
 startGame();
