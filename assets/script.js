@@ -1,6 +1,7 @@
 var question = document.getElementById("question");
 var choice = Array.from(document.getElementsByClassName("choice-ans"));
 var timerEl = document.getElementById("timerEl");
+var scoreCounter = document.getElementById("scoreCounter");
 
 
 let currentQuestion = {};
@@ -46,7 +47,7 @@ let questions =[
     },
 ]
 
-var CORRECT_POINTS = 10;
+var point = 1;
 var MAX_QUESTIONS = 4;
 
 startGame = () => {
@@ -86,6 +87,8 @@ choice.forEach(choice => {
             if (pickedAns == currentQuestion.answer) {
                 var node1 = document.createTextNode("Correct!");
                 response.appendChild(node1);
+                score++;
+                scoreCounter.innerText = score;
             } else {
                 var node2 = document.createTextNode("Incorrect");
                 response.appendChild(node2);
@@ -107,6 +110,5 @@ function startTimer() {
             clearInterval(timer);
         }
     },1000);
-}
-
+}    
 startGame();
