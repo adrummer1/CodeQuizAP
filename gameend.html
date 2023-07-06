@@ -9,7 +9,12 @@
 <body>
     <div class="container">
         <div id="end" class="flex-center flex-column">
-
+            <h1 id="endHead">All done!</h1>
+            <h2 id="endSub">Your final score is</h2><h2 id="finalScore">0</h2>
+            <form>
+                <input type="text" name="initials" id="initials" placeholder="Initials">
+                <button type="submit" class="btn" id="savedScore" onclick="saveScore(event)">Save</button>
+            </form>
         </div>
     </div>
     <script src="./assets/gameend.js"></script>

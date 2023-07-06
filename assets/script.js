@@ -61,6 +61,7 @@ startGame = () => {
 
 getNextQuestion = () => {
     if (availQuestions.length === 0 || questionCount >= MAX_QUESTIONS) {
+        localStorage.setItem("latestScore", score);
         return window.location.assign("./gameend.html");
     }
     questionCount++;
