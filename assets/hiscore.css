@@ -1,0 +1,10 @@
+#hiScoresList {
+    list-style: none;
+    margin-bottom: 4rem;
+}
+
+.hi-score {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #1f3c70;
+}

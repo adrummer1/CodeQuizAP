@@ -1,3 +1,4 @@
+// Set global variables
 var question = document.getElementById("question");
 var choice = Array.from(document.getElementsByClassName("choice-ans"));
 var timerEl = document.getElementById("timerEl");
@@ -50,6 +51,7 @@ let questions =[
 var point = 1;
 var MAX_QUESTIONS = 4;
 
+// Start game also starts timer and loads new question function
 startGame = () => {
     timerCount = 100;
     score = 0;
@@ -59,6 +61,7 @@ startGame = () => {
     getNextQuestion();
 };
 
+// Gets new question after answer submitted
 getNextQuestion = () => {
     if (availQuestions.length === 0 || questionCount >= MAX_QUESTIONS) {
         localStorage.setItem("latestScore", score);
@@ -78,6 +81,7 @@ getNextQuestion = () => {
     acceptAnswers = true;
 };
 
+// Adds correct or incorrect response depending on the user's answer
 var response = document.getElementById("response");
 choice.forEach(choice => {
     choice.addEventListener("click", Event => {
@@ -103,12 +107,14 @@ choice.forEach(choice => {
     });
 })
 
+// Start timer and take user to the game end page if timer run to zero
 function startTimer() {
     timer = setInterval(function() {
         timerCount--;
         timerEl.textContent = timerCount;
         if (timerCount === 0) {
             clearInterval(timer);
+            location.replace("/gameend.html");
         }
     },1000);
 }    

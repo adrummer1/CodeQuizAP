@@ -11,6 +11,7 @@ initials.addEventListener("keyup", () => {
     saveScoreBtn.disabled = !initials.value;
 });
 
+// Save user's score to localStorage API
 saveScore = (event) => {
     event.preventDefault();
 
@@ -22,5 +23,5 @@ saveScore = (event) => {
     scores.sort( (a,b) => b.score - a.score);
 
     localStorage.setItem("scores", JSON.stringify(scores));
-    // location.assign("/");
+    location.assign("/hiscore.html");
 };
