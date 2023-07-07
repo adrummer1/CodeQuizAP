@@ -3,7 +3,7 @@ var saveScoreBtn = document.getElementById("savedScore");
 var finalScore = document.getElementById("finalScore");
 var latestScore = localStorage.getItem("latestScore");
 
-var scores = JSON.parse(localStorage.getItem("scores"));
+var scores = JSON.parse(localStorage.getItem("scores")) || [];
 
 finalScore.innerText = latestScore;
 
@@ -23,5 +23,5 @@ saveScore = (event) => {
     scores.sort( (a,b) => b.score - a.score);
 
     localStorage.setItem("scores", JSON.stringify(scores));
-    location.assign("/hiscore.html");
+    window.location.assign("./hiscore.html");
 };
