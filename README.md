@@ -1,15 +1,15 @@
 # CodeQuizAP
 
-Welcome to my Code Quiz application! Get ready to test your knowledge of Javasript code with this bried quiz
+Welcome to my Code Quiz application! Get ready to test your knowledge of Javascript code with this brief quiz.
 
 ## About this application
 
 The purpose of this application is to serve a brief Javascript code quiz so learning developers can test their knowledge. The application functions as follows:
 
 * WHEN a user opens the app link
-* THEN the user is taken to the homepage where they read a brief overview the code's instructions. The page has a button to start the quiz
+* THEN the user is taken to the homepage where they read a brief overview and the quiz instructions. The page has a button to start the quiz
 * WHEN a user clicks on the Start Quiz button 
-* THEN they are taken to the first of four multiple choice questions. The first question is randomly selected from the list 
+* THEN they are taken to the first of four multiple choice questions. The first question is randomly selected from a list 
 * WHEN the first question is displayed
 * THEN a timer begins ticking down from 100
 * WHEN the user selects an answer
@@ -23,7 +23,7 @@ The purpose of this application is to serve a brief Javascript code quiz so lear
 * WHEN the user completes the quize before the timer runs to zero
 * THEN they are taken to the Done page
 * WHEN the user arrives at the Done page 
-* THEN it displays their final score and prompts them to enter their initials to save their score to the localStorage
+* THEN it displays their final score and prompts them to enter their initials to save their score 
 * WHEN the user submits their initials
 * THEN they are taken to the Scores page that show all scores sorted from highest to lowest
 
@@ -33,8 +33,8 @@ To accomplish this project I leaned on the activities and lessons learned in the
 
 ## Screenshot
 
-![Screenshot] (./assets/APCodeQuizScreenshot.png)
+![Screenshot](./assets/APCodeQuizScreenshot.png)
 
 ## Deployed Link
 
-[Here is a link to the deployed project application]
+[Here is a link to the deployed project application](https://adrummer1.github.io/CodeQuizAP/)
