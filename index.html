@@ -53,6 +53,15 @@
           </div>
           <div id="response"></div>
       </div>
+      <div id="end" class="page quizend">
+        <h1 id="endHead">All done!</h1>
+        <h2 id="endSub">Your final score is</h2><h2 id="finalScore">0</h2>
+        <h2>Enter your initials to save your score:</h2>
+        <form>
+            <input type="text" name="initials" id="initials" placeholder="Initials">
+            <button type="submit" class="btn-submit" id="savedScore" onclick="saveScore(event)">Save</button>
+        </form>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/script.js"></script>

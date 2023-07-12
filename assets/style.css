@@ -57,7 +57,24 @@ h3 {
     border-radius: 1.5rem;
 }
 
-.btn:hover {
+.btn-start:hover {
+    cursor: pointer;
+    box-shadow: 0 0.3rem 1.3rem #1f3c70;
+}
+
+.btn-submit {
+    background-color: #367af1;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 3rem;
+    padding: 2% 5%;
+    border-radius: 1.5rem;
+}
+
+.btn-submit:hover {
     cursor: pointer;
     box-shadow: 0 0.3rem 1.3rem #1f3c70;
 }
@@ -83,7 +100,7 @@ input::placeholder {
     color: #aaa;
 }
 
-/* Styling for questions */
+/* Styling for question section */
 .choice {
     display: flex;
     margin-bottom: .3rem;
@@ -125,4 +142,33 @@ input::placeholder {
 .header-pre {
     text-align: center;
     font-size: 2rem;
+}
+
+#hiScoresList {
+    list-style: none;
+    margin-bottom: 4rem;
+}
+
+.hi-score {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #1f3c70;
+}
+
+/* Styling fot the hiscore page */
+.btn-home {
+    background-color: #367af1;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 3rem;
+    padding: 2% 5%;
+    border-radius: 1.5rem;
+}
+
+.btn-home:hover {
+    cursor: pointer;
+    box-shadow: 0 0.3rem 1.3rem #1f3c70;
 }
