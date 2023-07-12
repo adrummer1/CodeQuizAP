@@ -45,7 +45,7 @@ h3 {
     margin: 0 auto;
 }
 
-.btn {
+.btn-start {
     background-color: #367af1;
     border: none;
     color: #fff;
@@ -81,4 +81,48 @@ input {
 
 input::placeholder {
     color: #aaa;
+}
+
+/* Styling for questions */
+.choice {
+    display: flex;
+    margin-bottom: .3rem;
+    font-size: 2rem;
+    border: 0.2rem solid #367af1;
+    background-color: #fff;
+    border-radius: 1.5rem;
+}
+
+.choice:hover {
+    cursor: pointer;
+    box-shadow: 0 0.3rem 1.3rem #1f3c70;
+}
+
+.choice-opt {
+    padding: 1.3rem 2rem;
+    background-color: #367af1;
+    color: #fff;
+    border-radius: 1.3rem 0 0 1.3rem;
+}
+
+.choice-ans {
+    padding: 1.3rem;
+    width: 100%;
+}
+
+#response {
+    padding: 3rem;
+    font-size:4rem;
+    font-weight:bold;
+    color: #f28c8c;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-pre {
+    text-align: center;
+    font-size: 2rem;
 }

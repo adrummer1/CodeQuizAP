@@ -10,12 +10,51 @@
 
   <body>
     <div class="container">
-        <div id="home" class="flex-center flex-column">
+        <div id="home" class="page start">
             <h1>AP's Coding Quiz Challenge</h1>
             <h2>Welcome to my code challenge! Try to answer the following code-related questions within the time alloted. Note that any incorrect answers will deduct 20 seconds from the timer!</h2>
-            <a class="btn" href="./game.html">Start Quiz</a>
+            <a class="btn-start">Start Quiz</a>
         </div>
+        <div id="game" class="page question">
+          <div id="header">
+              <div id="header-item">
+                  <p class="header-pre">
+                      Score
+                  </p>
+                  <h1 class="header-text" id="scoreCounter">
+                      0
+                  </h1>
+              </div>    
+              <div class="header-item">
+                  <p class="header-pre">
+                      Timer
+                  </p>
+                  <h1 class="header-text" id="timerEl">
+                      100
+                  </h1>
+              </div>
+          </div>        
+          <h2 id="question">Do you know the answer to this question?</h2>
+          <div class="choice">
+              <p class="choice-opt">A</p>
+              <p class="choice-ans" data-number="1">>Answer 1</p>
+          </div>
+          <div class="choice">
+              <p class="choice-opt">B</p>
+              <p class="choice-ans" data-number="2">Answer 2</p>
+          </div>
+          <div class="choice">
+              <p class="choice-opt">C</p>
+              <p class="choice-ans" data-number="3">Answer 3</p>
+          </div>
+          <div class="choice">
+              <p class="choice-opt">D</p>
+              <p class="choice-ans" data-number="4">Answer 4</p>
+          </div>
+          <div id="response"></div>
+      </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./assets/script.js"></script>
   </body>
 </html>

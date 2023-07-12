@@ -4,6 +4,17 @@ var choice = Array.from(document.getElementsByClassName("choice-ans"));
 var timerEl = document.getElementById("timerEl");
 var scoreCounter = document.getElementById("scoreCounter");
 
+// Function to set which pages display for the user
+function showPage(className) {
+    $(".page").hide();
+    $(className).show();
+}
+
+showPage(".start");
+
+$(".btn-start").click(function () {
+    showPage(".question");
+})
 
 let currentQuestion = {};
 let acceptAnswers = false;
@@ -13,7 +24,8 @@ let availQuestions = [];
 var timer;
 var timerCount;
 
-let questions =[
+
+let questions = [
     {
         question: "Which of the following is not a primitive data type in JavaScript?",
         choice1: "Number",
@@ -49,7 +61,7 @@ let questions =[
 ]
 
 var point = 1;
-var MAX_QUESTIONS = 4;
+var maxQuestions = 4;
 
 // Start game also starts timer and loads new question function
 startGame = () => {
@@ -63,7 +75,7 @@ startGame = () => {
 
 // Gets new question after answer submitted
 getNextQuestion = () => {
-    if (availQuestions.length === 0 || questionCount >= MAX_QUESTIONS) {
+    if (availQuestions.length === 0 || questionCount >= maxQuestions) {
         localStorage.setItem("latestScore", score);
         return location.assign("./gameend.html");
     }
