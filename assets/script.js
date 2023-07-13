@@ -73,7 +73,7 @@ var maxQuestions = 4;
     score = 0;
     availQuestions = [...questions];
     console.log(availQuestions);
-    // startTimer();
+    startTimer();
     getNextQuestion();
 };
 
