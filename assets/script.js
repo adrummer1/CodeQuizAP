@@ -1,6 +1,5 @@
 // Set global variables
 var question = document.getElementById("question");
-var choice = Array.from(document.getElementsByClassName("choice-ans"));
 var timerEl = document.getElementById("timerEl");
 var scoreCounter = document.getElementById("scoreCounter");
 var initials = document.getElementById("initials");
@@ -22,8 +21,10 @@ function showPage(className) {
 
 showPage(".start");
 
+// Takes user to startGame 
 $(".btn-start").click(function () {
     showPage(".question");
+    startGame();
 })
 
 // Setting data array for the four question in the quiz and an answer value that is a number.
@@ -72,27 +73,35 @@ var maxQuestions = 4;
     score = 0;
     availQuestions = [...questions];
     console.log(availQuestions);
-    startTimer();
+    // startTimer();
     getNextQuestion();
 };
 
-// Gets new question after answer submitted. If the user gets through all four questions before the time ends take them to the quizend section.
+// Gets new question after answer submitted. If the user gets through all four questions before the time ends take them to the quizend section. I worked through this with a TA.
 function getNextQuestion () {
     if (availQuestions.length === 0 || questionCount >= maxQuestions) {
         localStorage.setItem("latestScore", score);
         return showPage(".quizend");
     }
-    // Iterates through the questions displays questions at random
+    question.innerHTML = "";
+    
+    // Iterates through the questions displays questions at random. 
     questionCount++;
-    var questionIndex = Math.floor(Math.random() * availQuestions.length);
-    currentQuestion = availQuestions[questionIndex];
-    question.innerText = currentQuestion.question;
-    choice.forEach(choice => {
-        // Set new variable for number that will relect the number assigned to the correct answer.
-        var number = choice.dataset["number"];
-        choice.innerText = currentQuestion["choice" + number];
-    });
-
+        var questionIndex = Math.floor(Math.random() * availQuestions.length);
+        currentQuestion = availQuestions[questionIndex];
+        var questionHeader = document.createElement("h3");
+        questionHeader.innerText = currentQuestion.question;
+        question.appendChild(questionHeader);
+        var choices = Object.entries(currentQuestion).filter(function (entry) {
+        return entry[0].includes("choice")
+        });
+        choices.forEach((choice, index) => {
+        // Set new variable for choice that sets choices to buttons.
+        var choiceDiv = document.createElement("div");
+        choiceDiv.innerHTML = `<button data-number="${index + 1}" class="choice">${choice[1]}</button>`;
+        question.appendChild(choiceDiv);
+        });
+ 
     // Replaces one question with another available question from the question indexes.
     availQuestions.splice(questionIndex, 1);
 
@@ -104,34 +113,31 @@ function getNextQuestion () {
 // Sets new variable for response by getting the response element
 var response = document.getElementById("response");
 // This is an event function for when the user selects an answer it displays text below the question if the answer is correct on incorrect.
-choice.forEach(choice => {
-    choice.addEventListener("click", Event => {
-        // If no choices are made this ends the function and returns a boolean of false.
-        if (!acceptAnswers) return;
-        acceptAnswers = false;
-        // Target the responses based on the number corresponding to the answer for each question.
-        var pickedChoice = Event.target;
+function checkAnswer (event) {
+    event.preventDefault();
+    if (event.target.matches(".choice")) {
+        var pickedChoice = event.target;
         var pickedAns = pickedChoice.dataset["number"];
-            // If the user chooses the correct answer return text Correct.
-            if (pickedAns == currentQuestion.answer) {
-                var node1 = document.createTextNode("Correct!");
-                response.appendChild(node1);
-                score++;
-                scoreCounter.innerText = score;
-            // If the user chooses any other answer return text Incorrect and reduce the timer count by 20 seconds.
-            } else {
-                var node2 = document.createTextNode("Incorrect");
-                response.appendChild(node2);
-                timerCount -= 20;
-            }
-
-            // Set a brief one second pause that will remove the response text and take the user to the next question.
-            setTimeout( () => {
+        // If the user chooses the correct answer return text Correct.
+        if (pickedAns == currentQuestion.answer) {
+        var node1 = document.createTextNode("Correct!");
+        response.appendChild(node1);
+        score++;
+        scoreCounter.innerText = score;
+        // If the user chooses any other answer return text Incorrect and reduce the timer count by 20 seconds.
+        } else {
+        var node2 = document.createTextNode("Incorrect");
+        response.appendChild(node2);
+        timerCount -= 20;
+    }
+     setTimeout( () => {
                 response.innerHTML = "";
                 getNextQuestion();
             }, 1000);
-    });
-})
+    }  
+} 
+
+question.addEventListener("click", checkAnswer);
 
 // Start timer and take user to the gameend section if timer run to zero
 function startTimer() {
@@ -173,4 +179,4 @@ function saveScore (event) {
 };
 
 // Call the startGame function.
-startGame();
+// startGame();

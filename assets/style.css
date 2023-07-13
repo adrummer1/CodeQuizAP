@@ -14,7 +14,7 @@ h1,
 h2,
 h3,
 h4 {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     color: #606062;
 }
 
@@ -30,7 +30,7 @@ h2 {
 }
 
 h3 {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .container {
@@ -105,9 +105,11 @@ input::placeholder {
     display: flex;
     margin-bottom: .3rem;
     font-size: 2rem;
+    padding: 1rem;
+    margin: 1rem;
     border: 0.2rem solid #367af1;
     background-color: #fff;
-    border-radius: 1.5rem;
+    border-radius: .5rem;
 }
 
 .choice:hover {
@@ -125,6 +127,10 @@ input::placeholder {
 .choice-ans {
     padding: 1.3rem;
     width: 100%;
+}
+
+#question {
+    align-items: center;
 }
 
 #response {

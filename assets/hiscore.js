@@ -1,5 +1,5 @@
 // get hiScoreList by element id
-var hiScoresList = document.getElementById("hiScoresList");
+var hiScoresList = document.getElementById("hiScoresList") || [];
 
 // parse score data from string to object
 var hiScores = JSON.parse(localStorage.getItem("scores"));
