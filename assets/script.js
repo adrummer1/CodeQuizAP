@@ -178,5 +178,3 @@ function saveScore (event) {
     location.assign("./hiscore.html");
 };
 
-// Call the startGame function.
-// startGame();
